@@ -7,7 +7,8 @@ HdCARDS = {
 # 雪道和疾患社卡组编号转换
 # key为疾患社编号，value为雪道对应卡图编号
 CODE_TRANS = {
-    'CSM2.1C-DAR': 'CSM2.1C-043'
+    'CSM2.1C-DAR': 'CSM2.1C-043',
+    'CSM2.1C-GRA': 'CSM2.1C-037'
 }
 
 CARD_SIZE = (600, 832)
