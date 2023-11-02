@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PTCG TTS MAKE</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #inputText {
+            margin-bottom: 10px;
+        }
+
+        .imageContainer {
+            margin-top: 20px;
+        }
+
+        #generatedImage {
+            width: 600px;
+            height: 499px;
+            margin-bottom: 10px;
+        }
+
+        #downloadButton {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <input type="text" id="inputText" placeholder="输入uuid">
+    <button id="generateButton">生成</button>
+    <div class="imageContainer">
+        {% if execute_msg == '制作完成' %}
+            <img id="generatedImage" src="{{ deck_png }}" alt="生成的图片">
+        {% else %}
+            <h2>{{ execute_msg }}</h2>
+        {% endif %}
+        <button id="downloadButton">下载图片</button>
+    </div>
+</div>
+
+<script>
+    // 获取元素
+    const inputText = document.getElementById('inputText');
+    const generateButton = document.getElementById('generateButton');
+    const generatedImage = document.getElementById('generatedImage');
+    const downloadButton = document.getElementById('downloadButton');
+
+    // 生成按钮点击事件
+    generateButton.addEventListener('click', () => {
+        const text = inputText.value; // 获取输入框的值
+        const link = document.createElement('a');
+        link.href = location.origin + '?deck_uuid=' + text;
+        link.click()
+    });
+
+    // 下载按钮点击事件
+    downloadButton.addEventListener('click', () => {
+        const imageUrl = generatedImage.src;
+        downloadImage(imageUrl); // 下载图片
+    });
+
+    // 下载图片的函数
+    function downloadImage(imageUrl) {
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = 'generated_image.png';
+        link.click();
+    }
+</script>
+</body>
+</html>

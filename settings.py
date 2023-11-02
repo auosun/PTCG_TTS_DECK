@@ -18,3 +18,7 @@ CARD_URL = "https://636c-cloud1-9gd4kn3z06e5ac68-1309946562.tcb.qcloud.la/{numbe
 DECK_URL = "https://api.jihuanshe.com/api/market/share/market-deck?market_deck_uuid={market_deck_uuid}&url=https://www.jihuanshe.com/app/userCardSet?marketDeckUuid={market_deck_uuid}%26gameKey=pkm%26language=sc"
 
 DECK_UUID = open('uuid', 'r').read().strip()
+
+DECK_PNG_LOCATION = 'static/decks/'
+
+CARD_PNG_LOCATION = 'static/cards/'
