@@ -10,7 +10,8 @@ HdCARDS = {
 # key为疾患社编号，value为雪道对应卡图编号
 CODE_TRANS = {
     'CSM2.1C-DAR': 'CSM2.1C-043',
-    'CSM2.1C-GRA': 'CSM2.1C-037'
+    'CSM2.1C-GRA': 'CSM2.1C-037',
+    'CSM2.1C-MET': 'CSM2.1C-044'  # 基础钢能量
 }
 
 CARD_SIZE = (600, 832)
@@ -19,7 +20,7 @@ CARD_URL = "https://636c-cloud1-9gd4kn3z06e5ac68-1309946562.tcb.qcloud.la/{numbe
 
 DECK_URL = "https://api.jihuanshe.com/api/market/share/market-deck?market_deck_uuid={market_deck_uuid}&url=https://www.jihuanshe.com/app/userCardSet?marketDeckUuid={market_deck_uuid}%26gameKey=pkm%26language=sc"
 
-DECK_UUID = open('uuid', 'r').read().strip()
+DECK_UUID = '67c44874-f2bd-4235-8393-7661264f4a5e'
 
 DECK_PNG_LOCATION = 'static/decks/'
 
