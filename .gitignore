@@ -161,3 +161,9 @@ cython_debug/
 
 static/cards/
 static/decks/
+
+# .replit
+.upm/
+poetry.lock
+pyproject.toml
+.pythonlibs/
