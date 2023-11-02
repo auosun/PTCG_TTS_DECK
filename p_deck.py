@@ -1,4 +1,5 @@
 import os.path
+import random
 import re
 import time
 from io import BytesIO
@@ -70,7 +71,7 @@ class PDeck:
 
             print(f'{card_name} download success.')
             self.download_count += 1
-            time.sleep(1)
+            time.sleep(random.uniform(0.5,1.5))
 
     def save_img(self):
         new_image = Image.new('RGBA', (settings.CARD_SIZE[0] * 10, settings.CARD_SIZE[1] * 6))
