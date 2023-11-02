@@ -66,4 +66,4 @@ if __name__ == '__main__':
             os.makedirs(dir_name)
 
     threading.Thread(target=exec_make_deck, args=()).start()
-    app.run()
+    app.run(host=settings.FLASK_HOST, port=settings.FLASK_PORT, debug=settings.DEBUG)

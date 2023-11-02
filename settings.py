@@ -1,4 +1,6 @@
 # 高清下载地址
+import os
+
 HdCARDS = {
     'CS2bC-093': "https://www.pokemon.cn/assets_c/2023/08/22ade522ed077954a43ab95d457e5e68a2d996c6-thumb-1000xauto-20619.png",
     'CS2.5C-057': "https://www.pokemon.cn/assets_c/2023/09/bd1b6cdbaeb4907ecf83aac17cc0aaaa4c77e9f9-thumb-868x1207-21040.png"
@@ -22,3 +24,7 @@ DECK_UUID = open('uuid', 'r').read().strip()
 DECK_PNG_LOCATION = 'static/decks/'
 
 CARD_PNG_LOCATION = 'static/cards/'
+
+FLASK_HOST = os.environ.get('HOST', '0.0.0.0')
+FLASK_PORT = os.environ.get('PORT', 3000)
+DEBUG = os.environ.get('DEBUG', True)

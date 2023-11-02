@@ -61,9 +61,8 @@ class PDeck:
             try:
                 response.raise_for_status()
             except Exception as e:
-                print(
-                    f'下载错误，可尝试 {image_url} 下载图片，并保存到{settings.CARD_PNG_LOCATION}中，文件名为: {card_name}')
-
+                self.error_msg = f'下载错误，可尝试 {image_url} 下载图片，并保存到{settings.CARD_PNG_LOCATION}中，文件名为: {card_name}'
+                print(self.error_msg)
                 raise e
 
             img = Image.open(BytesIO(response.content))
