@@ -9,9 +9,15 @@ HdCARDS = {
 # 雪道和疾患社卡组编号转换
 # key为疾患社编号，value为雪道对应卡图编号
 CODE_TRANS = {
-    'CSM2.1C-DAR': 'CSM2.1C-043',
-    'CSM2.1C-GRA': 'CSM2.1C-037',
-    'CSM2.1C-MET': 'CSM2.1C-044'  # 基础钢能量
+    'CSM2.1C-DAR': 'CSM2.1C-043',  # 恶能
+    'CSM2.1C-GRA': 'CSM2.1C-037',  # 草能
+    'CSM2.1C-MET': 'CSM2.1C-044',  # 钢能
+    'CSM2.1C-FAI': 'CSM2.1C-045',  # 仙能
+    'CSM2.1C-WAT': 'CSM2.1C-039',  # 水能
+    'CSM2.1C-FIR': 'CSM2.1C-038',  # 火能
+    'CSM2.1C-PSY': 'CSM2.1C-041',  # 超能
+    'CSM2.1C-FIG': 'CSM2.1C-042',  # 斗能
+    'CSM2.1C-LIG': 'CSM2.1C-040',  # 电能
 }
 
 CARD_SIZE = (600, 832)
