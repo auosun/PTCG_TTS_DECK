@@ -38,7 +38,8 @@ def convert_deck():
 
     png_uuids = [os.path.splitext(i)[0] for i in os.listdir(settings.DECK_PNG_LOCATION)]
     if deck_uuid in png_uuids:
-        return render_template('index.html', execute_msg="制作完成", deck_png=os.path.join(settings.DECK_PNG_LOCATION, f"{deck_uuid}.png"))
+        deck_name = f"{deck_uuid}.png"
+        return render_template('index.html', execute_msg="制作完成", deck_png=os.path.join(settings.DECK_PNG_LOCATION, deck_name), deck_name=deck_name)
 
     g_decks = [d.deck_uuid for d in decks]
     if deck_uuid in g_decks:
