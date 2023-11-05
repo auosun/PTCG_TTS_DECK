@@ -35,13 +35,18 @@
     <button id="generateButton">生成</button>
     <div class="imageContainer">
         {% if execute_msg == '制作完成' %}
-            <img id="generatedImage" src="{{ deck_png }}" alt="生成的图片">
+            <p>点击下载：<a href="{{ deck_png }}" download="tts.png" id="deck_png">
+                {{ deck_name }}
+            </a></p>
+
+            <div><img id="generatedImage" src="" alt="生成的图片" hidden="hidden"></div>
+            <button id="previewButton">预览图片</button>
+
+{#            <img id="generatedImage" src="{{ deck_png }}" alt="生成的图片">#}
         {% else %}
             <h2>{{ execute_msg }}</h2>
         {% endif %}
-
     </div>
-    <button id="downloadButton">下载图片</button>
     <p>项目地址：https://github.com/auosun/PTCG_TTS_DECK/tree/main</p>
 </div>
 
@@ -49,8 +54,7 @@
     // 获取元素
     const inputText = document.getElementById('inputText');
     const generateButton = document.getElementById('generateButton');
-    const generatedImage = document.getElementById('generatedImage');
-    const downloadButton = document.getElementById('downloadButton');
+    const previewButton = document.getElementById('previewButton')
 
     // 生成按钮点击事件
     generateButton.addEventListener('click', () => {
@@ -60,19 +64,13 @@
         link.click()
     });
 
-    // 下载按钮点击事件
-    downloadButton.addEventListener('click', () => {
-        const imageUrl = generatedImage.src;
-        downloadImage(imageUrl); // 下载图片
-    });
+    previewButton.addEventListener('click', () => {
+        const img = document.getElementById('generatedImage')
+        const deck_png = document.getElementById('deck_png')
+        img.src = deck_png.href
+        img.removeAttribute('hidden')
+    })
 
-    // 下载图片的函数
-    function downloadImage(imageUrl) {
-        const link = document.createElement('a');
-        link.href = imageUrl;
-        link.download = 'generated_image.png';
-        link.click();
-    }
 </script>
 </body>
 </html>
