@@ -167,3 +167,4 @@ static/decks/
 poetry.lock
 pyproject.toml
 .pythonlibs/
+.DS_Store
