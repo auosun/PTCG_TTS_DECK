@@ -56,7 +56,7 @@ class PDeck:
                 if card_code in settings.CODE_TRANS:
                     card_code = settings.CODE_TRANS[card_code]
 
-                if card_code.startswith('S-P'):
+                if card_code.startswith('S-P') or card_code.endswith('compress.jpeg?v=13'):
                     card_url = image_url
                 else:
                     card_url = settings.CARD_URL.format(number=card_code.split('-', 1)[0], code=card_code)
