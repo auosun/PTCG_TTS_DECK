@@ -33,7 +33,10 @@ class PDeck:
         cards = list()
         for item in deck_cards:
             codes = re.search(r'\/([^\/]*\-[A-Za-z0-9]{3})[^\/]*(\.jpg|\.png)', item['image_url'])
-            cards.append((codes.groups()[0], item['count'], item['image_url']))
+            if not codes:
+                cards.append((os.path.basename(item['image_url']), item['count'], item['image_url']))
+            else:
+                cards.append((codes.groups()[0], item['count'], item['image_url']))
 
         self.deck_cards = cards
 
