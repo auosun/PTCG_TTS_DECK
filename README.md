@@ -6,7 +6,7 @@
 
 疾患社APP复制卡组链接
 
-![](img/link.png)
+![](static/img/link.png)
 
 ```
 https://...marketDeckUuid=1ecc41fd-e186-4547-9495-121172e75876&gameKey=pkm&language=sc
@@ -18,11 +18,11 @@ https://...marketDeckUuid=1ecc41fd-e186-4547-9495-121172e75876&gameKey=pkm&langu
 
 打开[体验地址](https://ptcgttsdeck--jzysuzhou.repl.co/) 
 
-![](img/try.png)
+![](static/img/try.png)
 
 将uuid复制到输入框，点击生成，手动刷新平台。
 
-![](img/success.png)
+![](static/img/success.png)
 
 生成完毕如上图所示，如未完成，平台会返回当前生成状态，请耐心等待。
 
@@ -32,15 +32,15 @@ https://...marketDeckUuid=1ecc41fd-e186-4547-9495-121172e75876&gameKey=pkm&langu
 
 进入打牌MOD，点击上方 `物体` -> `组件` -> `卡牌` -> `自定义牌堆` 
 
-![](img/assembly.png)
+![](static/img/assembly.png)
 
 右键生成的牌堆，填入参数
 
-![](img/cards.png)
+![](static/img/cards.png)
 
-参数如图所示，正面使用获取到牌堆卡图，反面可以自己找一张，[卡牌背面](img/reverse_card.jpg)
+参数如图所示，正面使用获取到牌堆卡图，反面可以自己找一张，[卡牌背面](static/img/reverse_card.jpg)
 
-![](img/deck.png)
+![](static/img/deck.png)
 
 等待加载完成则如上图所示，愉快的打牌吧，enjoy～
 

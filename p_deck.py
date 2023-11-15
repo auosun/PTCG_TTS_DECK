@@ -127,4 +127,4 @@ if __name__ == '__main__':
         if not os.path.exists(dir_name):
             os.makedirs(dir_name)
 
-    PDeck(settings.DECK_UUID).execute()
+    PDeck('608ecb6e-9062-41e4-8e94-5baf6ddec925').execute()
