@@ -30,7 +30,7 @@ def exec_make_deck():
 @app.route('/', methods=['GET'])
 def convert_deck():
     deck_uuid = request.args.get('deck_uuid')
-    if deck_uuid is None:
+    if not deck_uuid:
         return render_template('index.html')
 
     if deck_uuid in error_deck:
