@@ -49,7 +49,25 @@
     <button id="showReadme">显示使用手册</button>
 </div>
 
-<div class="container" id="readme_container" hidden="hidden">
+<div id="readme_container"></div>
+<script>
+    // 获取元素
+    const inputText = document.getElementById('inputText');
+    const generateButton = document.getElementById('generateButton');
+    const showReadme = document.getElementById('showReadme');
+
+    // 生成按钮点击事件
+    generateButton.addEventListener('click', () => {
+        const text = inputText.value; // 获取输入框的值
+        const link = document.createElement('a');
+        link.href = location.origin + '?deck_uuid=' + text;
+        link.click()
+    });
+
+    showReadme.addEventListener('click', () => {
+        const readme = document.getElementById('readme_container')
+        readme.innerHTML = `
+        <div class="container" >
 <style>
 		/* https://necolas.github.io/normalize.css/ */
 		html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
@@ -492,9 +510,7 @@
 <h2 id="卡组uuid">卡组uuid</h2>
 <p>疾患社APP复制卡组链接</p>
 <p><img src="static/img/link.png" alt=""/></p>
-<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```
-" data-joplin-source-close="
-```">https://...marketDeckUuid=1ecc41fd-e186-4547-9495-121172e75876&amp;gameKey=pkm&amp;language=sc</pre><pre class="hljs"><code><span class="hljs-attribute">https</span>://...marketDeckUuid=<span class="hljs-number">1</span>ecc41fd-e186-<span class="hljs-number">4547</span>-<span class="hljs-number">9495</span>-<span class="hljs-number">121172</span>e75876&amp;gameKey=pkm&amp;language=sc</code></pre></div>
+<div class="joplin-editable"><pre class="joplin-source">https://...marketDeckUuid=1ecc41fd-e186-4547-9495-121172e75876&amp;gameKey=pkm&amp;language=sc</pre><pre class="hljs"><code><span class="hljs-attribute">https</span>://...marketDeckUuid=<span class="hljs-number">1</span>ecc41fd-e186-<span class="hljs-number">4547</span>-<span class="hljs-number">9495</span>-<span class="hljs-number">121172</span>e75876&amp;gameKey=pkm&amp;language=sc</code></pre></div>
 <p>提取链接<code class="inline-code">marketDeckUuid=</code>后面，<code class="inline-code">&amp;gameKey</code>之前的部分也就是 <code class="inline-code">1ecc41fd-e186-4547-9495-121172e75876</code></p>
 <h2 id="牌堆卡图">牌堆卡图</h2>
 <p>打开<a data-from-md="" title="https://ptcgttsdeck--jzysuzhou.repl.co/" href="https://ptcgttsdeck--jzysuzhou.repl.co/">体验地址</a></p>
@@ -522,25 +538,7 @@
 </ol>
 </div>
 </div>
-
-
-<script>
-    // 获取元素
-    const inputText = document.getElementById('inputText');
-    const generateButton = document.getElementById('generateButton');
-    const showReadme = document.getElementById('showReadme');
-
-    // 生成按钮点击事件
-    generateButton.addEventListener('click', () => {
-        const text = inputText.value; // 获取输入框的值
-        const link = document.createElement('a');
-        link.href = location.origin + '?deck_uuid=' + text;
-        link.click()
-    });
-
-    showReadme.addEventListener('click', () => {
-        const readme = document.getElementById('readme_container')
-        readme.removeAttribute("hidden")
+        `
         showReadme.remove()
     });
 
