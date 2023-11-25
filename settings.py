@@ -18,6 +18,12 @@ CODE_TRANS = {
     'CSM2.1C-PSY': 'CSM2.1C-041',  # 超能
     'CSM2.1C-FIG': 'CSM2.1C-042',  # 斗能
     'CSM2.1C-LIG': 'CSM2.1C-040',  # 电能
+    'CSCC-013': 'CS3DC-158',
+    'CSCC-014': 'CS3DC-160',
+    'CSCC-017': 'CS3bC-121',
+    'CSCC-002': 'CS3bC-020',
+    'CS2DaC-043': 'CS3DC-140',
+    'CSBC-019': 'CS3DC-168'
 }
 
 CARD_SIZE = (600, 832)
@@ -35,3 +41,5 @@ CARD_PNG_LOCATION = 'static/cards/'
 FLASK_HOST = os.environ.get('HOST', '0.0.0.0')
 FLASK_PORT = os.environ.get('PORT', 3000)
 DEBUG = os.environ.get('DEBUG', True)
+
+CARD_BACK_URL = "http://cloud-3.steamusercontent.com/ugc/2160099523430329011/9BE66430CD3C340060773E321DDD5FD86C1F2703/"
