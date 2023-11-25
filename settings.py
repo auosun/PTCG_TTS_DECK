@@ -18,6 +18,7 @@ CODE_TRANS = {
     'CSM2.1C-PSY': 'CSM2.1C-041',  # 超能
     'CSM2.1C-FIG': 'CSM2.1C-042',  # 斗能
     'CSM2.1C-LIG': 'CSM2.1C-040',  # 电能
+    'CS3DC-LIG': 'CSM2.1C-040',  # 基本电能
     'CSCC-013': 'CS3DC-158',
     'CSCC-014': 'CS3DC-160',
     'CSCC-017': 'CS3bC-121',
