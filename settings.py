@@ -19,12 +19,13 @@ CODE_TRANS = {
     'CSM2.1C-FIG': 'CSM2.1C-042',  # 斗能
     'CSM2.1C-LIG': 'CSM2.1C-040',  # 电能
     'CS3DC-LIG': 'CSM2.1C-040',  # 基本电能
+    'CS3DC-PSY': 'CSM2.1C-041',  # 超
     'CSCC-013': 'CS3DC-158',
     'CSCC-014': 'CS3DC-160',
     'CSCC-017': 'CS3bC-121',
     'CSCC-002': 'CS3bC-020',
     'CS2DaC-043': 'CS3DC-140',
-    'CSBC-019': 'CS3DC-168'
+    'CSBC-019': 'CS3DC-168',
 }
 
 CARD_SIZE = (600, 832)
