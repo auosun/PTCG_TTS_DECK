@@ -1,3 +1,4 @@
+import json
 import os.path
 import random
 import re
@@ -9,17 +10,19 @@ from PIL import Image
 
 import settings
 from constant import PDeckStatus
+from template import PTCGTemplate
 
 
 class PDeck:
 
-    def __init__(self, deck_uuid):
+    def __init__(self, deck_uuid, save_type):
         self.deck_uuid = deck_uuid
         self.deck_name = ""
         self.deck_cards = list()
         self.deck_png = ""
         self.error_msg = ""
         self.download_count = 0
+        self.save_type = save_type or "img"
 
     def request_deck(self):
         deck_url = settings.DECK_URL.format(market_deck_uuid=self.deck_uuid)
@@ -74,7 +77,7 @@ class PDeck:
 
             print(f'{card_name} download success.')
             self.download_count += 1
-            time.sleep(random.uniform(0.5,1.5))
+            time.sleep(random.uniform(0.5, 1.5))
 
     def save_img(self):
         new_image = Image.new('RGBA', (settings.CARD_SIZE[0] * 10, settings.CARD_SIZE[1] * 6))
@@ -93,6 +96,17 @@ class PDeck:
 
         self.deck_png = os.path.join(settings.DECK_PNG_LOCATION, f"{self.deck_uuid}.png")
         new_image.save(self.deck_png)
+
+    def save_json(self):
+        template = PTCGTemplate()
+        template.set_deck_name(self.deck_name)
+        cards = [
+            (card_code, os.path.join(settings.CARD_PNG_LOCATION, f"{card_code}.png"))
+            for card_code, count, image_url in self.deck_cards for _ in range(count)
+        ]
+        template.import_cards(cards)
+        with open(os.path.join(settings.DECK_JSON_LOCATION, f"{self.deck_uuid}.json"), 'w') as file:
+            json.dump(template.data, file, indent=2)
 
     @property
     def execute_status(self):
@@ -113,11 +127,19 @@ class PDeck:
         try:
             self.request_deck()
             self.download_cards()
-            self.save_img()
+            save_method = getattr(self, "save_%s" % self.save_type)
+            if not save_method:
+                raise Exception("不存在当前保存方法")
+
+            save_method()
+
         except Exception as e:
             print(str(e))
             self.error_msg = str(e)
-            return False
+            if settings.DEBUG:
+                raise e
+            else:
+                return False
 
         return True
 

@@ -27,6 +27,22 @@ def exec_make_deck():
         time.sleep(10)
 
 
+@app.route('/delete', methods=['GET'])
+def delete_deck():
+    deck_uuid = request.args.get('deck_uuid')
+    json_file = os.path.join(
+        settings.DECK_JSON_LOCATION, f"{deck_uuid}.json"
+    )
+    img_file = os.path.join(
+        settings.DECK_PNG_LOCATION, f"{deck_uuid}.png"
+    )
+    for file in [json_file, img_file]:
+        if os.path.exists(file):
+            os.remove(file)
+
+    return render_template('index.html')
+
+
 @app.route('/', methods=['GET'])
 def convert_deck():
     deck_uuid = request.args.get('deck_uuid')
@@ -36,10 +52,30 @@ def convert_deck():
     if deck_uuid in error_deck:
         return render_template('index.html', execute_msg=f"{deck_uuid}卡组制作错误了，{error_deck[deck_uuid]}")
 
-    png_uuids = [os.path.splitext(i)[0] for i in os.listdir(settings.DECK_PNG_LOCATION)]
-    if deck_uuid in png_uuids:
-        deck_name = f"{deck_uuid}.png"
-        return render_template('index.html', execute_msg="制作完成", deck_png=os.path.join(settings.DECK_PNG_LOCATION, deck_name), deck_name=deck_name)
+    make_type = request.args.get('type')
+
+    if make_type == "json":
+        uuids = [os.path.splitext(i)[0] for i in os.listdir(settings.DECK_JSON_LOCATION)]
+    else:
+        uuids = [os.path.splitext(i)[0] for i in os.listdir(settings.DECK_PNG_LOCATION)]
+
+    if deck_uuid in uuids:
+
+        if make_type == "json":
+            deck_file = os.path.join(
+                settings.DECK_JSON_LOCATION, f"{deck_uuid}.json"
+            )
+            file_type = "json"
+        else:
+            deck_file = os.path.join(
+                settings.DECK_PNG_LOCATION, f"{deck_uuid}.png"
+            )
+            file_type = "img"
+
+        return render_template(
+            'index.html', execute_msg="制作完成", deck_file=deck_file, deck_name=deck_uuid,
+            file_type=file_type
+        )
 
     g_decks = [d.deck_uuid for d in decks]
     if deck_uuid in g_decks:
@@ -57,12 +93,14 @@ def convert_deck():
 
         return render_template('index.html', execute_msg=msg)
 
-    decks.append(PDeck(deck_uuid))
+    save_type = make_type or "img"
+
+    decks.append(PDeck(deck_uuid, save_type=save_type))
     return render_template('index.html', execute_msg=f"{deck_uuid}卡组制作进入队列，当前排位{len(decks)}")
 
 
 if __name__ == '__main__':
-    for dir_name in [settings.CARD_PNG_LOCATION, settings.DECK_PNG_LOCATION]:
+    for dir_name in [settings.CARD_PNG_LOCATION, settings.DECK_PNG_LOCATION, settings.DECK_JSON_LOCATION]:
         if not os.path.exists(dir_name):
             os.makedirs(dir_name)
 

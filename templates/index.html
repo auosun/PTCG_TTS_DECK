@@ -33,14 +33,18 @@
 <div class="container">
     <input type="text" id="inputText" placeholder="输入uuid">
     <button id="generateButton">生成</button>
+    <button id="generateButtonJson">生成json</button>
     <div class="imageContainer">
         {% if execute_msg == '制作完成' %}
-            <p>点击下载：<a href="{{ deck_png }}" download="tts.png" id="deck_png">
+            <p>点击下载：<a href="{{ deck_file }}" download id="deck_file">
                 {{ deck_name }}
             </a></p>
 
             <div><img id="generatedImage" src="" alt="生成的图片" hidden="hidden"></div>
+            {% if file_type == 'img' %}
             <button id="previewButton">预览图片</button>
+            {% endif %}
+
         {% else %}
             <h2>{{ execute_msg }}</h2>
         {% endif %}
@@ -54,6 +58,7 @@
     // 获取元素
     const inputText = document.getElementById('inputText');
     const generateButton = document.getElementById('generateButton');
+    const generateButtonJson = document.getElementById('generateButtonJson');
     const showReadme = document.getElementById('showReadme');
 
     // 生成按钮点击事件
@@ -63,6 +68,15 @@
         link.href = location.origin + '?deck_uuid=' + text;
         link.click()
     });
+
+    generateButtonJson.addEventListener('click', () => {
+        const text = inputText.value; // 获取输入框的值
+        const link = document.createElement('a');
+        link.href = location.origin + '?deck_uuid=' + text + '&type=json';
+        link.click()
+    });
+
+
 
     showReadme.addEventListener('click', () => {
         const readme = document.getElementById('readme_container')
@@ -542,11 +556,11 @@
         showReadme.remove()
     });
 
-    {% if execute_msg == '制作完成' %}
+    {% if execute_msg == '制作完成' and file_type == "img" %}
     const previewButton = document.getElementById('previewButton')
     previewButton.addEventListener('click', () => {
         const img = document.getElementById('generatedImage')
-        const deck_png = document.getElementById('deck_png')
+        const deck_png = document.getElementById('deck_file')
         img.src = deck_png.href
         img.removeAttribute('hidden')
     })
