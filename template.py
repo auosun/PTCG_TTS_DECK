@@ -50,7 +50,7 @@ class PTCGTemplate(TTSTemplate):
                 v['FaceURL'] = os.path.join(CARD_URI, card_url)
                 v['BackURL'] = self.back_card
 
-            card_name = CARD_NAMES.get(card_code, "")
+            card_name = CARD_NAMES.get(card_code, card_code)
             obj['Nickname'] = card_name
 
     @staticmethod
