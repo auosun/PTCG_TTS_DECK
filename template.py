@@ -12,7 +12,7 @@ class TTSTemplate(object):
         self.template = copy.deepcopy(DECK_TEMPLATE) if template is None else template
 
     def set_deck_name(self, deck_name):
-        self.template['ObjectStates'][0]['Name'] = deck_name
+        self.template['ObjectStates'][0]['Nickname'] = deck_name
 
     def _custom_deck(self):
         return self.template['ObjectStates'][0]['CustomDeck']
@@ -50,7 +50,7 @@ class PTCGTemplate(TTSTemplate):
                 v['FaceURL'] = os.path.join(CARD_URI, card_url)
                 v['BackURL'] = self.back_card
 
-            card_name = CARD_NAMES.get(card_code, self.md5(card_code))
+            card_name = CARD_NAMES.get(card_code, "")
             obj['Nickname'] = card_name
 
     @staticmethod
