@@ -32,7 +32,7 @@ CODE_TRANS = {
 
 _CARD_NAMES_ENERGY = {
     '基本恶能量': {'CSM2.1C-043', 'CSM2.1C-DAR', 'CS1DC-DAR', 'CSMPiC--_15-sc.png~tplv-la29u1ii6m-compress.jpeg?v=13'},
-    '基本草能量': {'CSM2.1C-037', 'CSM2.1C-GRA', 'CS1DC-GRA'},
+    '基本草能量': {'CSM2.1C-037', 'CSM2.1C-GRA', 'CS1DC-GRA', 'CSMPaC-GRA'},
     '基本钢能量': {'CSM2.1C-044', 'CSM2.1C-MET', 'CSMPhC-MET', 'CS1DC-MET'},
     '基本仙能量': {'CSM2.1C-045', 'CSM2.1C-FAI'},
     '基本水能量': {'CSM2.1C-039', 'CSM2.1C-WAT', 'CSMAC-WAT', 'CSMPcC-WAT', 'CS1DC-WAT'},
