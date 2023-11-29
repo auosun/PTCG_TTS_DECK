@@ -9,6 +9,10 @@ HdCARDS = {
 CODE_TRANS = {
     'CSM2.1C-DAR': 'CSM2.1C-043',  # 恶能
     'CSM2.1C-GRA': 'CSM2.1C-037',  # 草能
+    'CSMPaC-GRA': 'CSM2.1C-037',  # 草能
+    'CS3DC-GRA': 'CSM2.1C-037',  # 草能
+    'CSMPiC---sc.png~tplv-la29u1ii6m-compress.jpeg?v=13': 'CSM2.1C-037',  # 草能
+
     'CSM2.1C-MET': 'CSM2.1C-044',  # 钢能
     'CSM2.1C-FAI': 'CSM2.1C-045',  # 仙能
     'CSM2.1C-WAT': 'CSM2.1C-039',  # 水能
