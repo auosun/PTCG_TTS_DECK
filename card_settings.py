@@ -32,14 +32,14 @@ CODE_TRANS = {
 
 _CARD_NAMES_ENERGY = {
     '基本恶能量': {'CSM2.1C-043', 'CSM2.1C-DAR', 'CS1DC-DAR', 'CSMPiC--_15-sc.png~tplv-la29u1ii6m-compress.jpeg?v=13'},
-    '基本草能量': {'CSM2.1C-037', 'CSM2.1C-GRA', 'CS1DC-GRA', 'CSMPaC-GRA'},
+    '基本草能量': {'CSM2.1C-037', 'CSM2.1C-GRA', 'CS1DC-GRA', 'CSMPaC-GRA', 'CS3DC-GRA'},
     '基本钢能量': {'CSM2.1C-044', 'CSM2.1C-MET', 'CSMPhC-MET', 'CS1DC-MET'},
     '基本仙能量': {'CSM2.1C-045', 'CSM2.1C-FAI'},
     '基本水能量': {'CSM2.1C-039', 'CSM2.1C-WAT', 'CSMAC-WAT', 'CSMPcC-WAT', 'CS1DC-WAT'},
     '基本火能量': {'CSM2.1C-038', 'CSM2.1C-FIR', 'CSMPbC-FIR', 'CS1DC-FIR'},
     '基本斗能量': {'CSM2.1C-042', 'CSM2.1C-FIG', 'CSMAC-FIG', 'CS1DC-FIG', 'CSM1DC-FIG'},
     '基本雷能量': {'CSM2.1C-040', 'CS3DC-LIG', 'CSM2.1C-LIG', 'CSMPdC-LIG'},
-    '基本超能量': {'CSM2.1C-041', 'CSM2.1C-PSY', 'CS3DC-PSY', 'CSAC-PSY', 'CS1DC-PSY', 'CSM1DC-PSY'},
+    '基本超能量': {'CSM2.1C-041', 'CSM2.1C-PSY', 'CS3DC-PSY', 'CSAC-PSY', 'CS1DC-PSY', 'CSM1DC-PSY', 'CSMPeC-PSY'},
     "捕获能量": {'CSBC-019', 'CS3DC-168', 'CS1.5C-055'},
     "极光能量": {'CSAC-024', },
     "连击能量": {'CSCC-019', 'CS3DC-170', 'CS3bC-179', 'CS3bC-122'},
