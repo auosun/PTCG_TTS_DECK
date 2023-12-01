@@ -16,6 +16,8 @@ CODE_TRANS = {
     'CSM2.1C-MET': 'CSM2.1C-044',  # 钢能
     'CSM2.1C-FAI': 'CSM2.1C-045',  # 仙能
     'CSM2.1C-WAT': 'CSM2.1C-039',  # 水能
+    'CS3DC-WAT': 'CSM2.1C-039',
+
     'CSM2.1C-FIR': 'CSM2.1C-038',  # 火能
     'CSM2.1C-PSY': 'CSM2.1C-041',  # 超能
     'CSM2.1C-FIG': 'CSM2.1C-042',  # 斗能
@@ -35,7 +37,7 @@ _CARD_NAMES_ENERGY = {
     '基本草能量': {'CSM2.1C-037', 'CSM2.1C-GRA', 'CS1DC-GRA', 'CSMPaC-GRA', 'CS3DC-GRA'},
     '基本钢能量': {'CSM2.1C-044', 'CSM2.1C-MET', 'CSMPhC-MET', 'CS1DC-MET'},
     '基本仙能量': {'CSM2.1C-045', 'CSM2.1C-FAI'},
-    '基本水能量': {'CSM2.1C-039', 'CSM2.1C-WAT', 'CSMAC-WAT', 'CSMPcC-WAT', 'CS1DC-WAT'},
+    '基本水能量': {'CSM2.1C-039', 'CSM2.1C-WAT', 'CSMAC-WAT', 'CSMPcC-WAT', 'CS1DC-WAT', 'CS3DC-WAT'},
     '基本火能量': {'CSM2.1C-038', 'CSM2.1C-FIR', 'CSMPbC-FIR', 'CS1DC-FIR'},
     '基本斗能量': {'CSM2.1C-042', 'CSM2.1C-FIG', 'CSMAC-FIG', 'CS1DC-FIG', 'CSM1DC-FIG'},
     '基本雷能量': {'CSM2.1C-040', 'CS3DC-LIG', 'CSM2.1C-LIG', 'CSMPdC-LIG'},
