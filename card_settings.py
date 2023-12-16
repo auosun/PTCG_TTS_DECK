@@ -43,7 +43,7 @@ _CARD_NAMES_ENERGY = {
     '基本雷能量': {'CSM2.1C-040', 'CS3DC-LIG', 'CSM2.1C-LIG', 'CSMPdC-LIG'},
     '基本超能量': {'CSM2.1C-041', 'CSM2.1C-PSY', 'CS3DC-PSY', 'CSAC-PSY', 'CS1DC-PSY', 'CSM1DC-PSY', 'CSMPeC-PSY'},
     "捕获能量": {'CSBC-019', 'CS3DC-168', 'CS1.5C-055'},
-    "极光能量": {'CSAC-024', },
+    "极光能量": {'CSAC-024', 'CS3DC-167'},
     "连击能量": {'CSCC-019', 'CS3DC-170', 'CS3bC-179', 'CS3bC-122'},
     "高速雷能量": {'CS1.5C-053', },
     "一击能量": {'CS3aC-125', 'CS3DC-166'},
