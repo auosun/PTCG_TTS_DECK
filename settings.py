@@ -9,7 +9,9 @@ CARD_SIZE = (600, 832)
 
 CARD_URL = "https://636c-cloud1-9gd4kn3z06e5ac68-1309946562.tcb.qcloud.la/{number}/{code}.png"
 
-DECK_URL = "https://api.jihuanshe.com/api/market/share/market-deck?market_deck_uuid={market_deck_uuid}&url=https://www.jihuanshe.com/app/userCardSet?marketDeckUuid={market_deck_uuid}%26gameKey=pkm%26language=sc"
+# DECK_URL = "https://api.jihuanshe.com/api/market/share/market-deck?market_deck_uuid={market_deck_uuid}&url=https://www.jihuanshe.com/app/userCardSet?marketDeckUuid={market_deck_uuid}%26gameKey=pkm%26language=sc"
+
+DECK_URL = "https://api.jihuanshe.com/api/market/share/market-deck?market_deck_uuid={market_deck_uuid}&url=https:%2F%2Fwww.jihuanshe.com%2Fapp%2FuserCardSet%3FmarketDeckUuid%3D{market_deck_uuid}%26gameKey%3Dpkm%26language%3Dsc"
 
 DECK_UUID = '67c44874-f2bd-4235-8393-7661264f4a5e'
 
