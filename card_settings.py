@@ -11,6 +11,7 @@ CODE_TRANS = {
     'CSM2.1C-GRA': 'CSM2.1C-037',  # 草能
     'CSMPaC-GRA': 'CSM2.1C-037',  # 草能
     'CS3DC-GRA': 'CSM2.1C-037',  # 草能
+    'CS3DC-DAR': 'CSM2.1C-043',  # 恶能
     'CSMPiC---sc.png~tplv-la29u1ii6m-compress.jpeg?v=13': 'CSM2.1C-037',  # 草能
 
     'CSM2.1C-MET': 'CSM2.1C-044',  # 钢能
