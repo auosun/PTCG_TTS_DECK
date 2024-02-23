@@ -46,6 +46,8 @@ class PDeck:
     def download_cards(self):
         pics = os.listdir(settings.CARD_PNG_LOCATION)
 
+        jhs_cards = list()
+
         for card_code, _, image_url in self.deck_cards:
             card_name = f"{card_code}.png"
             if card_name in pics:
@@ -64,13 +66,23 @@ class PDeck:
                 else:
                     card_url = settings.CARD_URL.format(number=card_code.split('-', 1)[0], code=card_code)
 
-            response = requests.get(card_url)
             try:
-                response.raise_for_status()
+                response = self.request_get(card_url)
             except Exception as e:
-                self.error_msg = f'下载错误，可尝试 {image_url} 下载图片，并保存到{settings.CARD_PNG_LOCATION}中，文件名为: {card_name}'
-                print(self.error_msg)
-                raise e
+                if settings.DOWNLOAD_BLUR:
+                    try:
+                        card_name = f"{card_code}_jhs.png"
+                        jhs_cards.append(card_code)
+                        if card_name in pics:
+                            continue
+
+                        response = self.request_get(image_url)
+                    except Exception as e:
+                        self.error_msg = f'下载错误，可尝试 {image_url} 下载图片，并保存到{settings.CARD_PNG_LOCATION}中，文件名为: {card_name}'
+                        raise e
+                else:
+                    self.error_msg = f'下载错误，可尝试 {image_url} 下载图片，并保存到{settings.CARD_PNG_LOCATION}中，文件名为: {card_name}'
+                    raise e
 
             img = Image.open(BytesIO(response.content))
             img.save(os.path.join(settings.CARD_PNG_LOCATION, card_name))
@@ -79,12 +91,33 @@ class PDeck:
             self.download_count += 1
             time.sleep(random.uniform(0.5, 1.5))
 
+        if jhs_cards:
+            new_deck_cards = list()
+            for card_code, count, image_url in self.deck_cards:
+                if card_code in jhs_cards:
+                    card_code = f"{card_code}_jhs"
+
+                new_deck_cards.append((card_code, count, image_url))
+
+            self.deck_cards = new_deck_cards
+
+    def request_get(self, card_url: str):
+        response = requests.get(card_url)
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            print(self.error_msg)
+            raise e
+
+        return response
+
     def save_img(self):
         new_image = Image.new('RGBA', (settings.CARD_SIZE[0] * 10, settings.CARD_SIZE[1] * 6))
 
         for i, card_img_path in enumerate(
                 [f"{card_code}.png" for card_code, card_num, _ in self.deck_cards for _ in range(card_num)]):
-            card_img = Image.open(os.path.join(settings.CARD_PNG_LOCATION, card_img_path)).resize(settings.CARD_SIZE)
+            card_location = os.path.join(settings.CARD_PNG_LOCATION, card_img_path)
+            card_img = Image.open(card_location).resize(settings.CARD_SIZE)
 
             row = i // 10
             col = i % 10
