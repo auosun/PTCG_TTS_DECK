@@ -79,7 +79,8 @@ _CARD_NAMES_ITEM = {
     '讲究头带': {'CSM1cC-129', 'CSMAC-010', },
     '钢铁平底锅': {'CSM2.1C-022', 'CSM1aC-131'},
     '腐朽的剑': {'CS2.5C-048', },
-    '回忆胶囊': {'CS2.5C-050', }
+    '回忆胶囊': {'CS2.5C-050', },
+    '道具妨碍器': {'CS3.5C-059', }
 }
 
 CARD_NAMES = {i: k for k, v in dict(**_CARD_NAMES_ENERGY, **_CARD_NAMES_ITEM).items() for i in v}
