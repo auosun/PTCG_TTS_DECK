@@ -59,6 +59,7 @@ _CARD_NAMES_ENERGY = {
     '组合能量': {'CSM1.5C-088', },
     '涂层钢能量': {'CS2.5C-059', },
     '潜行恶能量': {'CS2bC-115', },
+    '汇流能量': {'CS4bC-132', }
 
 
 }
@@ -71,14 +72,15 @@ _CARD_NAMES_ITEM = {
     '活力头带': {'CS1bC-126', },
     '望远镜': {'CS2bC-143', 'CS2bC-108'},
     '黑带': {'CSMPfC-014', 'CSM2bC-191'},
-    '气球': {'CS1bC-197', 'CSAC-017', 'CS1bC-128'},
+    '气球': {'CS1bC-197', 'CSAC-017', 'CS1bC-128', 'CS1DC-189'},
     '隐秘风帽': {'CSM2bC-132', },
     '回转滑板': {'CSM2aC-192', },
     '反击增幅器': {'CSM2DC-357', },
     '逃脱滑板': {'CSM1aC-209', 'CSM2DC-275'},
     '讲究头带': {'CSM1cC-129', 'CSMAC-010', },
     '钢铁平底锅': {'CSM2.1C-022', 'CSM1aC-131'},
-    '腐朽的剑': {'CS2.5C-048', }
+    '腐朽的剑': {'CS2.5C-048', },
+    '回忆胶囊': {'CS2.5C-050', }
 }
 
 CARD_NAMES = {i: k for k, v in dict(**_CARD_NAMES_ENERGY, **_CARD_NAMES_ITEM).items() for i in v}

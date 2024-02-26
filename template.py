@@ -44,12 +44,13 @@ class PTCGTemplate(TTSTemplate):
             v['BackURL'] = self.back_card
 
         for obj in self._contained_object():
-            card_code, card_url = None, None
+            card_code, card_url = "", ""
             for k, v in obj['CustomDeck'].items():
                 card_code, card_url = cards_dict.get(k)
                 v['FaceURL'] = os.path.join(CARD_URI, card_url)
                 v['BackURL'] = self.back_card
 
+            card_code = card_code.rsplit('_jhs', 1)[0]
             card_name = CARD_NAMES.get(card_code, card_code)
             obj['Nickname'] = card_name
 
