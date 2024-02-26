@@ -9,7 +9,7 @@ CARD_SIZE = (600, 832)
 
 CARD_URL = "https://636c-cloud1-9gd4kn3z06e5ac68-1309946562.tcb.qcloud.la/{number}/{code}.png"
 
-DOWNLOAD_BLUR = os.environ.get('DOWNLOAD_BLUR', True).upper() == "TRUE"
+DOWNLOAD_BLUR = os.environ.get('DOWNLOAD_BLUR', "true").upper() == "TRUE"
 
 # DECK_URL = "https://api.jihuanshe.com/api/market/share/market-deck?market_deck_uuid={market_deck_uuid}&url=https://www.jihuanshe.com/app/userCardSet?marketDeckUuid={market_deck_uuid}%26gameKey=pkm%26language=sc"
 
